@@ -33,20 +33,20 @@ class Application
     input = gets.chomp
     while input != "OUI" || input != "NON"
       case input
-        when "OUI"
-          #si oui, va lancer le nettoyage de la grille et relance une partie
-          input = " "
-          game.new_round
-          game.turn
-        when "NON"
-          #si non, va afficher le tableau de fin
-          game.game_end
-          break
-        else
-          #si l'entrée n'est pas bonne, retourne à l'input
-          puts "Veux-tu rejouer ? OUI / NON"
-          print "> "
-          input = gets.chomp
+      when "OUI"
+        #si oui, va lancer le nettoyage de la grille et relance une partie
+        input = " "
+        game.new_round
+        game.turn
+      when "NON"
+        #si non, va afficher le tableau de fin
+        game.game_end
+        break
+      else
+        #si l'entrée n'est pas bonne, retourne à l'input
+        puts "Veux-tu rejouer ? OUI / NON"
+        print "> "
+        input = gets.chomp
       end
     end
   end
