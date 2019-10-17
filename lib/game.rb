@@ -7,14 +7,14 @@ class Game < Board
   attr_accessor :players, :board, :status, :current_player
     #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
   
-    def initialize
+    def initialize(player1, player2)
       @board = Board.new
 
       @players = []
 
-      @current_player = Player.new("01", "O")
+      @current_player = Player.new(player1, "O")
       @players << @current_player
-      @current_player = Player.new("02", "X")
+      @current_player = Player.new(player2, "X")
       @players << @current_player
 
       @status = "On going"
@@ -25,47 +25,28 @@ class Game < Board
     def turn
       #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie.
 
-      puts "-" * 30
+      loop do
+      board.board_display
       puts "C'est au tour de : #{players[0].name}"
-      board.play_turn("player1")
+      board.play_turn("01")
+      board.board_display
+      break if board.victory? == true
       puts "C'est au tour de : #{players[1].name}"
-      board.play_turn("player2")
-      board.victory?
-
-      puts "-" * 30
-      puts "C'est au tour de : #{players[0].name}"
-      board.play_turn("player1")
-      puts "C'est au tour de : #{players[1].name}"
-      board.play_turn("player2")
-      board.victory?
-
-      puts "-" * 30
-      puts "C'est au tour de : #{players[0].name}"
-      board.play_turn("player1")
-      puts "C'est au tour de : #{players[1].name}"
-      board.play_turn("player2")
-      board.victory?
-
-      puts "-" * 30
-      puts "C'est au tour de : #{players[0].name}"
-      board.play_turn("player1")
-      puts "C'est au tour de : #{players[1].name}"
-      board.play_turn("player2")
-      board.victory?
-      
+      board.play_turn("02")
+      board.board_display
+      break if board.victory? == true
+      end
 
 
     end
   
     def new_round
-      # TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
+      board.board_clean        
     end
   
     def game_end
-      # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
+      puts " fin de la partie ! "
     end    
   
   end
   
-  
-  binding.pry
