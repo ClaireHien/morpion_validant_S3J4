@@ -33,6 +33,7 @@ class Game < Board
     def turn
       #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie.
 
+      t = 0
 
       loop do
         board.board_display
@@ -46,6 +47,12 @@ class Game < Board
           players[0].win += 1
           break
         end
+        t += 1
+
+        if t == 9
+          puts "Egalité !"
+          break
+        end 
 
         puts "C'est au tour de : #{players[1].name}"
         board.play_turn("02")
@@ -57,6 +64,7 @@ class Game < Board
           break
         end
 
+        t += 1
       end
 
       score
