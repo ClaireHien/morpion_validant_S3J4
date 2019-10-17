@@ -8,6 +8,7 @@ class Board
     def initialize
       @array_case = []
 
+      #toutes les cases du morpion, ayant des ID différentes vont être ajouté à l'array
       @array_case << BoardCase.new("A1")
       @array_case << BoardCase.new("A2")
       @array_case << BoardCase.new("A3")
@@ -20,6 +21,7 @@ class Board
 
     end
   
+    #l'affichage du tableau
     def board_display
       puts " "
       puts "      | 1 | 2 | 3 "
@@ -35,6 +37,7 @@ class Board
       puts " "
     end
 
+    #nettoyer le tableau pour une nouvelle partie
     def board_clean
       n = " "
       array_case[0].value = n
@@ -48,22 +51,28 @@ class Board
       array_case[8].value = n
     end
 
+    #méthode pour un tour de joueur
     def play_turn(player)
 
-      #changer a valeur de la case en X ou O
+      #changer la valeur de la case en X ou O en fonction du joueur
       if player == "01"
         a = "X"
       else 
         a = "O"
       end
 
+      #demande le choix du joueur
       puts "Quelle case  choisi-tu ?"
       print "> "
       input = gets.chomp
       loop do
           case input
 
+          #si l'entrée correspond à un when, effectue la suite
+
           when "A1"
+            #seulement si la case est vide, remplace ce vide par le symbol du joueur
+            #si la case est déjà pleine, renvoie à l'input
             if array_case[0].value != " "
               puts "Nop!"
               print "> "
@@ -154,6 +163,7 @@ class Board
             end
 
           else
+            #si l'entrée ne correspond pas a une case attendue, renvois à input
               puts "Nop!"
               print "> "
               input = gets.chomp
@@ -163,6 +173,7 @@ class Board
   
     def victory
 
+      #toutes les possibilités de victoires du joueur 1  (symbole X)
       if array_case[0].value == array_case[1].value && array_case[1].value == array_case[2].value && array_case[2].value == "X"
         return "X"
       elsif array_case[3].value == array_case[4].value && array_case[4].value == array_case[5].value && array_case[5].value == "X"
@@ -180,6 +191,7 @@ class Board
       elsif array_case[2].value == array_case[4].value && array_case[4].value == array_case[6].value && array_case[6].value == "X"
         return "X"
 
+      #toutes les possibilités de victoires du joueur 2 (symbole O)
       elsif array_case[0].value == array_case[1].value && array_case[1].value == array_case[2].value && array_case[2].value == "O"
         return "O"
       elsif array_case[3].value == array_case[4].value && array_case[4].value == array_case[5].value && array_case[5].value == "O"
@@ -197,10 +209,9 @@ class Board
       elsif array_case[2].value == array_case[4].value && array_case[4].value == array_case[6].value && array_case[6].value == "O"
         return "O"
 
-      elsif array_case.count(@value) == 0
+      #si toutes les cases sont remplies, retourne une égalité
+      elsif array_case[0].value != " " && array_case[1].value != " " && array_case[2].value != " " && array_case[3].value != " " && array_case[4].value != " " && array_case[5].value != " " && array_case[6].value != " " &&array_case[7].value != " " && array_case[8].value != " "
         return "égalité"
-#      elsif array_case[0].value != " " && array_case[1].value != " " && array_case[2].value != " " && array_case[3].value != " " && array_case[4].value != " " && array_case[5].value != " " && array_case[6].value != " " &&array_case[7].value != " " && array_case[8].value != " "
-#        return "égalité"
 
       else 
         return false
