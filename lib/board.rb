@@ -24,16 +24,16 @@ class Board
   #l'affichage du tableau
   def board_display
     puts " "
-    puts "      | 1 | 2 | 3 "
-    print "   "
+    puts "            | 1 | 2 | 3 "
+    print "         "
     puts "-" * 15
-    puts "    A | #{array_case[0].value} | #{array_case[1].value} | #{array_case[2].value} "
-    print "   "
+    puts "          A | #{array_case[0].value} | #{array_case[1].value} | #{array_case[2].value} "
+    print "         "
     puts "-" * 15
-    puts "    B | #{array_case[3].value} | #{array_case[4].value} | #{array_case[5].value} "
-    print "   "
+    puts "          B | #{array_case[3].value} | #{array_case[4].value} | #{array_case[5].value} "
+    print "         "
     puts "-" * 15
-    puts "    C | #{array_case[6].value} | #{array_case[7].value} | #{array_case[8].value} "
+    puts "          C | #{array_case[6].value} | #{array_case[7].value} | #{array_case[8].value} "
     puts " "
   end
 
@@ -62,8 +62,8 @@ class Board
     end
 
     #demande le choix du joueur
-    puts "Quelle case  choisi-tu ?"
-    print "> "
+    puts "      Quelle case choisis-tu ?"
+    print "      > "
     input = gets.chomp
     loop do
       case input
@@ -74,8 +74,11 @@ class Board
         #seulement si la case est vide, remplace ce vide par le symbol du joueur
         #si la case est déjà pleine, renvoie à l'input
         if array_case[0].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[0].value = a
@@ -84,8 +87,11 @@ class Board
 
       when "A2"
         if array_case[1].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[1].value = a
@@ -94,8 +100,11 @@ class Board
 
       when "A3"
         if array_case[2].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[2].value = a
@@ -104,8 +113,11 @@ class Board
 
       when "B1"
         if array_case[3].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[3].value = a
@@ -114,8 +126,11 @@ class Board
 
       when "B2"
         if array_case[4].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[4].value = a
@@ -124,8 +139,11 @@ class Board
 
       when "B3"
         if array_case[5].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[5].value = a
@@ -134,8 +152,11 @@ class Board
 
       when "C1"
         if array_case[6].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[6].value = a
@@ -144,8 +165,11 @@ class Board
 
       when "C2"
         if array_case[7].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[7].value = a
@@ -154,8 +178,11 @@ class Board
 
       when "C3"
         if array_case[8].value != " "
-          puts "Nop!"
-          print "> "
+          puts " "
+          puts "      Tricheur !"
+          puts "      Tu as essayé de voler une case à ton adversaire, mais tu peux pas !"
+          puts "      Choisi une autre case : "
+          print "      > "
           input = gets.chomp
         else
           array_case[8].value = a
@@ -164,8 +191,10 @@ class Board
 
       else
         #si l'entrée ne correspond pas a une case attendue, renvois à input
-        puts "Nop!"
-        print "> "
+        puts " "
+        puts "      Tu n'as pas entré une case valide"
+        puts "      Essaie encore en mettant bien les majuscules : "
+        print "      > "
         input = gets.chomp
       end
     end
