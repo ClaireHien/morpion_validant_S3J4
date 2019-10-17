@@ -4,13 +4,8 @@ require 'pry'
 
 class Board
     attr_accessor :array_case
-    #TO DO : la classe a 1 attr_accessor : un array/hash qui contient les BoardCases.
-    #Optionnellement on peut aussi lui rajouter un autre sous le nom @count_turn pour compter le nombre de coups joué
   
     def initialize
-      #TO DO :
-      #Quand la classe s'initialize, elle doit créer 9 instances BoardCases
-      #Ces instances sont rangées dans un array/hash qui est l'attr_accessor de la classe
       @array_case = []
 
       @array_case << BoardCase.new("A1")
@@ -41,7 +36,7 @@ class Board
     end
 
     def board_clean
-      n = "."
+      n = " "
       array_case[0].value = n
       array_case[1].value = n
       array_case[2].value = n
@@ -62,46 +57,107 @@ class Board
         a = "O"
       end
 
-      #TO DO : une méthode qui :
-      #1) demande au bon joueur ce qu'il souhaite faire
-      #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
       puts "Quelle case  choisi-tu ?"
+      print "> "
       input = gets.chomp
-      while input != "A1" || input != "A2" || input != "A3" || input != "B1" || input != "B2" || input != "B3" || input != "C1" || input != "C2" || input != "C3"
+      loop do
           case input
 
           when "A1"
+            if array_case[0].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
               array_case[0].value = a
               break
+            end
+
           when "A2"
-            array_case[1].value = a
+            if array_case[1].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[1].value = a
               break
+            end
+
           when "A3"
-            array_case[2].value = a
+            if array_case[2].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[2].value = a
               break
+            end
+
           when "B1"
-            array_case[3].value = a
+            if array_case[3].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[3].value = a
               break
+            end
+
           when "B2"
-            array_case[4].value = a
+            if array_case[4].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[4].value = a
               break
+            end
+
           when "B3"
-            array_case[5].value = a
+            if array_case[5].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[5].value = a
               break
+            end
+
           when "C1"
-            array_case[6].value = a
+            if array_case[6].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[6].value = a
               break
+            end
+
           when "C2"
-            array_case[7].value = a
+            if array_case[7].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[7].value = a
               break
+            end
+
           when "C3"
-            array_case[8].value = a
+            if array_case[8].value != " "
+              puts "Nop!"
+              print "> "
+              input = gets.chomp
+            else
+              array_case[8].value = a
               break
+            end
+
           else
               puts "Nop!"
               print "> "
               input = gets.chomp
-          end
+        end
       end
     end
   
@@ -140,6 +196,12 @@ class Board
         return "O"
       elsif array_case[2].value == array_case[4].value && array_case[4].value == array_case[6].value && array_case[6].value == "O"
         return "O"
+
+      elsif array_case.count(@value) == 0
+        return "égalité"
+#      elsif array_case[0].value != " " && array_case[1].value != " " && array_case[2].value != " " && array_case[3].value != " " && array_case[4].value != " " && array_case[5].value != " " && array_case[6].value != " " &&array_case[7].value != " " && array_case[8].value != " "
+#        return "égalité"
+
       else 
         return false
       end
@@ -147,5 +209,3 @@ class Board
     end
 
 end
-
-#binding.pry

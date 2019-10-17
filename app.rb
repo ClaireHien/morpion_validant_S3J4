@@ -9,4 +9,5 @@ require 'application'
 require 'board'
 require 'boardcase'
 
+#lance le jeu
 Application.new.perform

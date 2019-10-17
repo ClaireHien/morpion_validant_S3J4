@@ -48,8 +48,7 @@ class Application
     start_game
     player1 = ask_player1
     player2 = ask_player2
-    # TO DO : méthode qui initialise le jeu puis contient des boucles while pour faire tourner le jeu tant que la partie n'est pas terminée.
-    
+   
     game = Game.new(player1, player2)
     game.turn
 

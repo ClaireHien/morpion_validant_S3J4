@@ -1,14 +1,14 @@
 require 'pry'
 class BoardCase
     attr_accessor :value, :id
-    #TO DO : la classe a 2 attr_accessor, sa valeur en string (X, O, ou vide), ainsi que son identifiant de case
     
     def initialize(id)
-    #TO DO : doit régler sa valeur, ainsi que son numéro de case
+        #le nom de la case A1, A2...
         @id = id
-        @value = "."
+
+        #ce que la case va afficher
+        @value = " "
     end
     
   end
   
-#binding.pry
