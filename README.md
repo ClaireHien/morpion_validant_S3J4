@@ -16,7 +16,7 @@ game.rb va lancer une partie :<br />
 <li>Le jeu va demander à chaque joueur de choisir une case.
 <li>Il s'arrête en cas de victoire de l'un des deux joueurs ou si toutes les cases sont remplies et donnent une égalité
 <li>On ne peut pas choisir une case déjà remplie sinon il redemande de faire un choix
-<ul><br /><br />
+</ul><br /><br />
 
 application.rb va organiser le jeu : <br />
 <ul>
