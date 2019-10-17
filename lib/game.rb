@@ -12,9 +12,9 @@ class Game < Board
 
       @players = []
 
-      @current_player = Player.new(player1, "O")
+      @current_player = Player.new(player1, "O", 0)
       @players << @current_player
-      @current_player = Player.new(player2, "X")
+      @current_player = Player.new(player2, "X", 0)
       @players << @current_player
 
       @status = "On going"
@@ -22,21 +22,44 @@ class Game < Board
       #TO DO : créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
     end
   
+    def score 
+
+      puts "TABLEAU DES SCORES"
+      puts "#{players[0].name} a eu #{players[0].win} victoires !"
+      puts "#{players[1].name} a eu #{players[1].win} victoires !"
+
+    end
+    
     def turn
       #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie.
 
+
       loop do
-      board.board_display
-      puts "C'est au tour de : #{players[0].name}"
-      board.play_turn("01")
-      board.board_display
-      break if board.victory? == true
-      puts "C'est au tour de : #{players[1].name}"
-      board.play_turn("02")
-      board.board_display
-      break if board.victory? == true
+        board.board_display
+
+        puts "C'est au tour de : #{players[0].name}"
+        board.play_turn("01")
+        board.board_display
+
+        if board.victory == "X"
+          puts "Victoire de #{players[0].name} ! "
+          players[0].win += 1
+          break
+        end
+
+        puts "C'est au tour de : #{players[1].name}"
+        board.play_turn("02")
+        board.board_display
+
+        if board.victory == "O"
+          puts "Victoire de #{players[1].name} ! "
+          players[0].win +=1
+          break
+        end
+
       end
 
+      score
 
     end
   
@@ -46,6 +69,7 @@ class Game < Board
   
     def game_end
       puts " fin de la partie ! "
+      score
     end    
   
   end

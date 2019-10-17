@@ -37,7 +37,7 @@ class Application
           game.game_end
           break
         else
-          puts "J'ai pas compris : OUI / NON"
+          puts "Veux-tu rejouer ? OUI / NON"
           print "> "
           input = gets.chomp
       end

@@ -105,57 +105,41 @@ class Board
       end
     end
   
-    def victory?
+    def victory
 
       if array_case[0].value == array_case[1].value && array_case[1].value == array_case[2].value && array_case[2].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
       elsif array_case[3].value == array_case[4].value && array_case[4].value == array_case[5].value && array_case[5].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
       elsif array_case[6].value == array_case[7].value && array_case[7].value == array_case[8].value && array_case[8].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
       elsif array_case[0].value == array_case[3].value && array_case[3].value == array_case[6].value && array_case[6].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
       elsif array_case[1].value == array_case[4].value && array_case[4].value == array_case[7].value && array_case[7].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
       elsif array_case[2].value == array_case[5].value && array_case[5].value == array_case[8].value && array_case[8].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
       elsif array_case[0].value == array_case[4].value && array_case[4].value == array_case[8].value && array_case[8].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
       elsif array_case[2].value == array_case[4].value && array_case[4].value == array_case[6].value && array_case[6].value == "X"
-        puts "victoire des X"
-        return true
+        return "X"
 
       elsif array_case[0].value == array_case[1].value && array_case[1].value == array_case[2].value && array_case[2].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       elsif array_case[3].value == array_case[4].value && array_case[4].value == array_case[5].value && array_case[5].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       elsif array_case[6].value == array_case[7].value && array_case[7].value == array_case[8].value && array_case[8].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       elsif array_case[0].value == array_case[3].value && array_case[3].value == array_case[6].value && array_case[6].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       elsif array_case[1].value == array_case[4].value && array_case[4].value == array_case[7].value && array_case[7].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       elsif array_case[2].value == array_case[5].value && array_case[5].value == array_case[8].value && array_case[8].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       elsif array_case[0].value == array_case[4].value && array_case[4].value == array_case[8].value && array_case[8].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       elsif array_case[2].value == array_case[4].value && array_case[4].value == array_case[6].value && array_case[6].value == "O"
-        puts "victoire des 0"
-        return true
+        return "O"
       else 
         return false
       end
